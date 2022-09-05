@@ -68,7 +68,9 @@ class StreamController extends Controller
     public function finish($id)
     {
         $stream = Stream::find($id);
-        $response = Http::post("https://test.antmedia.io:5443/Sandbox/rest/v2/broadcasts/$stream->api_name/stop",);
+        
+        // $response = Http::post("https://test.antmedia.io:5443/Sandbox/rest/v2/broadcasts/$stream->api_name/stop");
+
         $stream->update([
             'status' => 'Offline',
         ]);

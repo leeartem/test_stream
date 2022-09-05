@@ -24,6 +24,7 @@
                 <p>
                     {{$streamData->description}}
                 </p>
+                <a href="https://test.antmedia.io:5443/Sandbox/rest/v2/broadcasts/{{$streamData->api_name}}" target="_blank">Данные о стриме в официальной АПИ</a>
                 @if($streamData->status=='Online')
                 <div class="stream-actions mt-5">
                     <form method="post" action="{{route('stream-finish', $streamData->id)}}">
