@@ -16,12 +16,12 @@ use App\Http\Controllers\StreamController;
 
 Route::get('/', [StreamController::class, 'list']);
 
-Route::middleware([Auth::class])->group(function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/stream/new', [StreamController::class, 'create'])->name('stream-new');
     Route::post('/stream/new', [StreamController::class, 'createSubmit'])->name('stream-new-submit');
+    Route::post('/stream/{id}/finish', [StreamController::class, 'finish'])->name('stream-finish');
 });
 
-Route::post('/stream/{id}/finish', [StreamController::class, 'finish'])->name('stream-finish');
 Route::get('/stream/{id}', [StreamController::class, 'show'])->name('stream-show');
 
 Auth::routes();

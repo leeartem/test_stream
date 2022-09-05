@@ -15,8 +15,8 @@ final class StreamData extends ObjectData
     public ?string $status;
     public ?string $api_name;
     public $preview;
-    public $user_id;
-    public $user_nickname;
+    public int $user_id;
+    public ?string $user_nickname;
 
     public static function fromRequest(Request $request): StreamData
     {

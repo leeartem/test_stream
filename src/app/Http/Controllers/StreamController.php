@@ -30,7 +30,7 @@ class StreamController extends Controller
 
     public function list()
     {
-        $streams = Stream::paginate(10);
+        $streams = Stream::orderBy('status')->paginate(10);
         return view('stream.list', compact('streams'));
     }
 
